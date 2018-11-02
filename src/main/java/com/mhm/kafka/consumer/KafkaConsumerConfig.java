@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * kafka消费者配置类
  * Created by MaHuiming on 2018/11/1.
  */
 @Configuration
@@ -42,6 +43,8 @@ public class KafkaConsumerConfig {
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(concurrency);
         factory.getContainerProperties().setPollTimeout(1500);
+        //设置了手动提交enable.auto.commit必须为false
+//        factory.getContainerProperties().setAckMode(AbstractMessageListenerContainer.AckMode.MANUAL);
         return factory;
     }
 
@@ -49,7 +52,10 @@ public class KafkaConsumerConfig {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
-
+    /**
+     *  自定义配置文件
+     * @return
+     */
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> propsMap = new HashMap<>();
         propsMap.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
@@ -63,6 +69,9 @@ public class KafkaConsumerConfig {
         return propsMap;
     }
 
+    /**
+     *
+     */
     @Bean
     public KafkaConsumer listener() {
         return new KafkaConsumer();

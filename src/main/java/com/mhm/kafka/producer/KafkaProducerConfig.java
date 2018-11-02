@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
  * Created by MaHuiming on 2018/11/1.
  */
 public class KafkaProducerConfig {
