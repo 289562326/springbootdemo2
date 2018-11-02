@@ -15,22 +15,22 @@
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} %5p - %m - %class{36}.%M(%F:%L) [%t:%r]%n"/>
         </Console>
         <!--Debug 日志配置 -->
-        <RollingFile name="D" fileName="${fileName}/log111_debug.log"
-                     filePattern="${fileName}/$${date:yyyy-MM}/log_debug-%d{MM-dd-yyyy}-%i.log.gz">
+        <RollingFile name="D" fileName="${fileName}/log_log4j2_debug.log"
+                     filePattern="${fileName}/$${date:yyyy-MM}/log_log4j2_debug-%d{MM-dd-yyyy}-%i.log.gz">
             <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} %5p - %m (%class{36}.%M:%L) [%t:%r]%n"/>
             <SizeBasedTriggeringPolicy size="${fileSize}"/>
         </RollingFile>
         <!--INFO 日志配置 -->
-        <RollingFile name="I" fileName="${fileName}/log111_info.log"
-                     filePattern="${fileName}/$${date:yyyy-MM}/log_info-%d{MM-dd-yyyy}-%i.log.gz">
+        <RollingFile name="I" fileName="${fileName}/log_log4j2_info.log"
+                     filePattern="${fileName}/$${date:yyyy-MM}/log_log4j2_info-%d{MM-dd-yyyy}-%i.log.gz">
             <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} %5p - %m (%class{36}.%M:%L) [%t:%r]%n"/>
             <SizeBasedTriggeringPolicy size="${fileSize}"/>
         </RollingFile>
         <!--ERROR 日志配置 -->
-        <RollingFile name="E" fileName="${fileName}/log111_error.log"
-                     filePattern="${fileName}/$${date:yyyy-MM}/log_error-%d{MM-dd-yyyy}-%i.log.gz">
+        <RollingFile name="E" fileName="${fileName}/log_log4j2_error.log"
+                     filePattern="${fileName}/$${date:yyyy-MM}/log_log4j2_error-%d{MM-dd-yyyy}-%i.log.gz">
             <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} %5p - %m (%class{36}.%M:%L) [%t:%r]%n"/>
             <SizeBasedTriggeringPolicy size="${fileSize}"/>

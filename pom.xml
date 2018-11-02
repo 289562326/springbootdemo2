@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-kafka.version>2.1.7.RELEASE</spring-kafka.version>
 	</properties>
 
 	<dependencies>
@@ -43,21 +44,7 @@
 			<version>1.16.20</version>
 			<optional>true</optional>
 		</dependency>
-
-		<!-- log4j2 start -->
-	<!--	<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.8.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.8.2</version>
-		</dependency>-->
-		<!-- log4j2 end -->
-
-		<!--去除 spring-boot-starter-logging -->
+		<!--如果单独使用log4j2,需要去除 spring-boot-starter-logging -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -68,10 +55,38 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- 添加log4j2 -->
+		<!-- 1、使用springboot集成的log4j2,配合log4j2-spring.xml使用 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<!--2、单独使用LogUtil需要引入下面的配置 log4j2 start -->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.logging.log4j</groupId>-->
+			<!--<artifactId>log4j-api</artifactId>-->
+			<!--<version>2.8.2</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.logging.log4j</groupId>-->
+			<!--<artifactId>log4j-core</artifactId>-->
+			<!--<version>2.8.2</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash; log4j2 end &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.slf4j</groupId>-->
+			<!--<artifactId>slf4j-log4j12</artifactId>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>commons-logging</groupId>-->
+			<!--<artifactId>commons-logging</artifactId>-->
+			<!--<version>1.1.2</version>-->
+		<!--</dependency>-->
+
+		<!-- kafka 20181101-->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>2.1.7.RELEASE</version>
 		</dependency>
 	</dependencies>
 
